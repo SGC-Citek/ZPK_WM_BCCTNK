@@ -1,0 +1,579 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.value: 'header'
+@UI.headerInfo.description.value: 'MaterialDocumentYear'
+@UI: {
+  headerInfo: { typeNamePlural: 'Materials',
+                title: { type: #STANDARD } },
+  presentationVariant: [{ sortOrder: [{ by: 'MaterialDocumentYear', direction:  #ASC } , { by: 'MaterialDocument', direction:  #ASC }] }] }
+
+annotate entity ZWM_I_HEADER with
+  parameters
+    @Consumption.defaultValue: 'X'
+    loc_chung_tu
+{
+  @UI.facet: [
+   {
+     id: 'Material',
+     purpose: #STANDARD,
+     type: #FIELDGROUP_REFERENCE,
+     label: 'General data',
+  //    isMap: true,
+     position: 10
+
+   },
+      {
+     id: 'HeaderinFo1',
+     purpose: #HEADER,
+     type: #FIELDGROUP_REFERENCE,
+
+     label: 'Delivery',
+     position: 10,
+     targetQualifier: 'HeaderinFo1'
+   },
+      {
+     id: 'HeaderinFo2',
+     purpose: #HEADER,
+     type: #FIELDGROUP_REFERENCE,
+
+     label: 'Purchase',
+     position: 10,
+     targetQualifier: 'HeaderinFo2'
+   },
+      {
+     id: 'HeaderinFo3',
+     purpose: #HEADER,
+     type: #FIELDGROUP_REFERENCE,
+
+     label: 'Order',
+     position: 10,
+     targetQualifier: 'HeaderinFo3'
+   },
+      {
+     id: 'HeaderinFo4',
+     purpose: #HEADER,
+     type: #FIELDGROUP_REFERENCE,
+
+     label: 'Reserve',
+     position: 10,
+     targetQualifier: 'HeaderinFo4'
+   },
+         {
+     id: 'HeaderinFo5',
+     purpose: #HEADER,
+     type: #FIELDGROUP_REFERENCE,
+
+     label: 'Sales',
+     position: 10,
+     targetQualifier: 'HeaderinFo5'
+   },
+            {
+     id: 'HeaderinFo6',
+     purpose: #HEADER,
+     type: #FIELDGROUP_REFERENCE,
+
+     label: 'Create',
+     position: 10,
+     targetQualifier: 'HeaderinFo6'
+   }
+     ,
+        {
+       id: 'Temp2',
+       purpose: #STANDARD,
+       type: #IDENTIFICATION_REFERENCE,
+       label: 'Details',
+       position: 40
+     }
+   ]
+
+
+  //
+  @UI.lineItem: [{ position: 10 }]
+  MaterialDocumentYear;
+  @UI.lineItem: [{ position: 10 }]
+
+  MaterialDocumentItem;
+  @UI: {  lineItem:       [ { position: 10  } ],
+  fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'Fieldgroup4' }]  }
+  @EndUserText.label: 'Material'
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_ProductDescription_2', element: 'Product' }}]
+
+  Material;
+  @UI: {  lineItem:       [ { position: 20  } ],
+  fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'Fieldgroup4' }]  }
+  @EndUserText.label: 'Product Description'
+  @Consumption.filter.hidden: true
+  ProductDescription;
+  @UI.lineItem: [{ position: 10 }]
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_MaterialDocumentTP', element: 'MaterialDocument' }}]
+
+  MaterialDocument;
+  @UI: {  lineItem:       [ { position: 30  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Plant'
+  @Consumption.filter.defaultValue: '1000'
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_Plant', element: 'Plant' }}]
+  @Consumption.filter: {mandatory: true , selectionType: #SINGLE , multipleSelections: true}
+  Plant;
+  @UI: {  lineItem:       [ { position: 40  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Storage Location'
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_StorageLocationStdVH', element: 'StorageLocation' }}]
+  @Consumption.filter: { selectionType: #SINGLE , multipleSelections: true}
+  StorageLocation;
+  @UI: {  lineItem:       [ { position: 50  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Storage Location Name'
+  @Consumption.filter.hidden: true
+  StorageLocationName;
+  @UI: {  lineItem:       [ { position: 60  } ],
+  fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'Fieldgroup4' }]  }
+  @EndUserText.label: 'Batch'
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_BatchDistinct', element: 'Batch' }}]
+
+  Batch;
+  @UI: {  lineItem:       [ { position: 70  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Shelf Life Expiration Date'
+  @Consumption.filter.hidden: true
+  ShelfLifeExpirationDate;
+  @UI: {  lineItem:       [ { position: 80  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Manufacture Date'
+  @Consumption.filter.hidden: true
+  ManufactureDate;
+  @UI: {  lineItem:       [ { position: 90  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Customer'
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_Customer', element: 'Customer' }}]
+
+  Customer;
+  @UI: {  lineItem:       [ { position: 100  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Company Code Currency'
+  @Consumption.filter.hidden: true
+  CompanyCodeCurrency;
+  @UI: {  lineItem:       [ { position: 110  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Total Goods Mvt Amt In CCCrcy'
+  @Consumption.filter.hidden: true
+  amount;
+  @UI: {  lineItem:       [ { position: 120  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Is Automatically Created'
+  @Consumption.filter.hidden: true
+  IsAutomaticallyCreated;
+  @UI: {  lineItem:       [ { position: 130  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Company Code'
+  @Consumption.filter.hidden: true
+  CompanyCode;
+  @UI: {  lineItem:       [ { position: 140  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Cost Center'
+  @Consumption.filter.hidden: true
+  CostCenter;
+  @UI: {  lineItem:       [ { position: 150  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Cost Center Name'
+  @Consumption.filter.hidden: true
+  CostCenterName;
+  @UI: {  lineItem:       [ { position: 160  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Debit Credit Code'
+  //  @Consumption.filter.hidden: true
+  DebitCreditCode;
+
+  @UI: {  lineItem:       [ { position: 30, label: 'Delivery document' } ],
+     selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo1' }] }
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_DeliveryDocumentStdVH', element: 'DeliveryDocument' }}]
+
+  DeliveryDocument;
+  @UI: {  lineItem:       [ { position: 30, label: 'Delivery document item' } ],
+     selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo1' }] }
+  DeliveryDocumentItem;
+  @UI: {  lineItem:       [ { position: 170  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Document Date'
+  @Consumption.filter.hidden: true
+  DocumentDate;
+  @UI: {  lineItem:       [ { position: 30, label: 'Purchase Order' } ],
+     selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo2' }] }
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_PurchaseOrderAPI01', element: 'PurchaseOrder' }}]
+
+  PurchaseOrder;
+  @UI: {  lineItem:       [ { position: 30, label: 'Purchase Order Item' } ],
+   selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo2' }] }
+  PurchaseOrderItem;
+  @UI: {  lineItem:       [ { position: 180  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Material Document Item Text'
+  @Consumption.filter.hidden: true
+  MaterialDocumentItemText;
+
+  @UI: {  lineItem:       [ { position: 30, label: 'Order ID' } ],
+   selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo3' }] }
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_Order', element: 'OrderID' }}]
+
+  OrderID;
+  @UI: {  lineItem:       [ { position: 30, label: 'Order Item' } ],
+  selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo3' }] }
+  OrderItem;
+  @UI: {  lineItem:       [ { position: 190  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Goods Movement Type'
+  //  @Consumption.valueHelpDefinition: [{entity: {name: 'I_GoodsMovementTypeT', element: 'GoodsMovementType' }}]
+  //  @Consumption.filter.hidden: true
+  GoodsMovementType;
+  @UI: {  lineItem:       [ { position: 200  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Goods Movement Type Name'
+  @Consumption.filter.hidden: true
+  GoodsMovementTypeName;
+  @UI: {  lineItem:       [ { position: 210  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Posting Date'
+  @Consumption.filter.selectionType: #INTERVAL
+  PostingDate;
+  @UI: {  lineItem:       [ { position: 220  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Quantity In Base Unit'
+  @Consumption.filter.hidden: true
+  QuantityInBaseUnit;
+  @UI: {  lineItem:       [ { position: 230  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Material Base Unit'
+  @Consumption.filter.hidden: true
+  MaterialBaseUnit;
+  @UI: {  lineItem:       [ { position: 240  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Quantity In Entry Unit'
+  @Consumption.filter.hidden: true
+  QuantityInEntryUnit;
+  @UI: {  lineItem:       [ { position: 250  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Entry Unit'
+  @Consumption.filter.hidden: true
+  EntryUnit;
+  @UI: {  lineItem:       [ { position: 260  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Bộ phận/Số xe'
+  @Consumption.filter.hidden: true
+  transportno;
+  @UI: {  lineItem:       [ { position: 260  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Họ và tên người vận chuyển'
+  @Consumption.filter.hidden: true
+  deliveryname;
+  @UI: {  lineItem:       [ { position: 260  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Phương tiện di chuyển'
+  @Consumption.filter.hidden: true
+  deliverytransport;
+  @UI: {  lineItem:       [ { position: 260  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Số hợp đồng vận chuyển'
+  @Consumption.filter.hidden: true
+  deliverycontractno;
+  @UI: {  lineItem:       [ { position: 270  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Số Cont'
+  @Consumption.filter.hidden: true
+  contno;
+  @UI: {  lineItem:       [ { position: 280  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Số Seal'
+  @Consumption.filter.hidden: true
+  sealno;
+  @UI: {  lineItem:       [ { position: 290  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Goods Receipt Type'
+  @Consumption.filter.hidden: true
+  GoodsReceiptType;
+  @UI: {  lineItem:       [ { position: 30, label: 'Reservation' } ],
+  selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo4' }] }
+  Reservation;
+  @UI: {  lineItem:       [ { position: 30, label: 'Reservation Item' } ],
+  selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo4' }] }
+  ReservationItem;
+  @UI: {  lineItem:       [ { position: 30, label: 'Reversed Material Document Item' } ],
+  selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo4' }] }
+  ReversedMaterialDocumentItem;
+  @UI: {  lineItem:       [ { position: 30, label: 'Reverse Materia lDocument Year' } ],
+  selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo4' }] }
+  ReversedMaterialDocumentYear;
+  @UI: {  lineItem:       [ { position: 30, label: 'Sales Order Item' } ],
+  selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo5' }] }
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_SalesOrderItemStdVH', element: 'SalesOrderItem' }}]
+
+  SalesOrderItem;
+  @UI: {  lineItem:       [ { position: 30, label: 'Sales Order' } ],
+  selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo5' }] }
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_SalesOrderStdVH', element: 'SalesOrder' }}]
+
+  SalesOrder;
+  @UI: {  lineItem:       [ { position: 280  } ],
+  fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'Fieldgroup4' }]  }
+  @EndUserText.label: 'Sales Order Schedule Line'
+  @Consumption.filter.hidden: true
+  SalesOrderScheduleLine;
+  @UI: {  lineItem:       [ { position: 290  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Issg Or Rcvg Spcl Stock Ind'
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_InventorySpecialStockType', element: 'InventorySpecialStockType' }}]
+  IssgOrRcvgSpclStockInd;
+  @UI: {  lineItem:       [ { position: 300  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Supplier'
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_Supplier', element: 'Supplier' }}]
+
+  Supplier;
+  @UI: {  lineItem:       [ { position: 310  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Issuing Or Receiving Plant'
+  @Consumption.filter.hidden: true
+  IssuingOrReceivingPlant;
+  @UI: {  lineItem:       [ { position: 320  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Receiving Storage Loc'
+  @UI.selectionField: [{ position: 50 }]
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_StorageLocationStdVH', element: 'StorageLocation' }}]
+  //  @Consumption.filter.hidden: true
+  IssuingOrReceivingStorageLoc;
+  @UI: {  lineItem:       [ { position: 330  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Issg Or Rcvg Material'
+  @Consumption.filter.hidden: true
+  IssgOrRcvgMaterial;
+  @UI: {  lineItem:       [ { position: 340  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Issg Or Rcvg Batch'
+  @Consumption.filter.hidden: true
+  IssgOrRcvgBatch;
+  @UI: {  lineItem:       [ { position: 30, label: 'Created By User' } ],
+     selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo6' }] }
+  //  @Consumption.valueHelpDefinition: [{entity: {name: 'I_User', element: 'UserID' }}]
+  CreatedByUser;
+  @UI: {  lineItem:       [ { position: 30, label: 'Creation Date' } ],
+     selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo6' }] }
+  CreationDate;
+  @UI: {  lineItem:       [ { position: 30, label: 'Creation Time' } ],
+     selectionField: [ { position: 30 } ], fieldGroup: [{   type: #STANDARD,
+  position: 10 ,
+  qualifier: 'HeaderinFo6' }] }
+  CreationTime;
+  @UI: {  lineItem:       [ { position: 350  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Inventory Transaction Type'
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_InventoryTransactionType', element: 'InventoryTransactionType' }}]
+  InventoryTransactionType;
+  @UI: {  lineItem:       [ { position: 360  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Material Document Header Text'
+  @Consumption.filter.hidden: true
+  MaterialDocumentHeaderText;
+  @UI: {  lineItem:       [ { position: 370  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Controlling Area'
+  @Consumption.filter.hidden: true
+  ControllingArea;
+  @UI: {  lineItem:       [ { position: 380  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Ngày nhập kho'
+  @Consumption.filter.hidden: true
+  ngaynhapkho;
+  @UI: {  lineItem:       [ { position: 390  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Ngày sản xuất'
+  @Consumption.filter.hidden: true
+  ngaysanxuat;
+  @UI: {  lineItem:       [ { position: 400  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Hạn sử dụng'
+  @Consumption.filter.hidden: true
+  hansudung;
+  @UI: {  lineItem:       [ { position: 410  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Đơn vị sản xuất'
+  @Consumption.filter.hidden: true
+  donvisanxuat;
+  @UI: {  lineItem:       [ { position: 420  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Nhà cung cấp'
+  @Consumption.filter.hidden: true
+  nhacungcap;
+  @UI: {  lineItem:       [ { position: 430  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Ghi chú'
+  @Consumption.filter.hidden: true
+  ghichu;
+  @UI: {  lineItem:       [ { position: 440  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Số hợp đồng'
+  @Consumption.filter.hidden: true
+  sohopdong;
+  @UI: {  lineItem:       [ { position: 450  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Ca sản xuất'
+  @Consumption.filter.hidden: true
+  casanxuat;
+  @UI: {  lineItem:       [ { position: 460  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'KG / thùng'
+  @Consumption.filter.hidden: true
+  kgthung;
+  @UI: {  lineItem:       [ { position: 470  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Quantity in altunit'
+  @Consumption.filter.hidden: true
+  quantity_in_altunit;
+  @UI: {  lineItem:       [ { position: 480  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'AltUnit'
+  @Consumption.filter.hidden: true
+  altUnit;
+  @UI: {  lineItem:       [ { position: 490  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Product Group'
+  @Consumption.filter.hidden: true
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_ProductGroup_2', element: 'ProductGroup' }}]
+
+  ProductGroup;
+  @UI: {  lineItem:       [ { position: 500  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Product Group Name'
+  @Consumption.filter.hidden: true
+  ProductGroupName;
+  @UI: {  lineItem:       [ { position: 510  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Product Type'
+  @Consumption.filter.hidden: true
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_ProductType', element: 'ProductType' }}]
+  ProductType;
+  @UI: {  lineItem:       [ { position: 520  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Product Type Name'
+  @Consumption.filter.hidden: true
+  ProductTypeName;
+  @UI: {  lineItem:       [ { position: 530  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Customer Name'
+  @Consumption.filter.hidden: true
+  customerName;
+  @UI: {  lineItem:       [ { position: 540  } ],
+    identification: [{ position: 10 }] }
+  @EndUserText.label: 'Supplier Name'
+  @Consumption.filter.hidden: true
+  supplierName;
+  @UI: {  lineItem:       [ { position: 550  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Chứng nhận'
+  @Consumption.filter.hidden: true
+  YY1_Chungnhan_PRD;
+  @UI: {  lineItem:       [ { position: 560  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Dòng sản phẩm'
+  @Consumption.filter.hidden: true
+  YY1_Dongsanpham_PRD;
+  @UI: {  lineItem:       [ { position: 570  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Gia vị / phụ gia'
+  @Consumption.filter.hidden: true
+  YY1_GiaviPhugia_PRD;
+  @UI: {  lineItem:       [ { position: 580  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Kích cơ / hình dáng size'
+  @Consumption.filter.hidden: true
+  YY1_KichcoHinhdangSize_PRD;
+  @UI: {  lineItem:       [ { position: 590  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Loại hình sản xuất'
+  @Consumption.filter.hidden: true
+  YY1_Loaihinhsanxuat_PRD;
+  @UI: {  lineItem:       [ { position: 600  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Loại TP thu hồi'
+  @Consumption.filter.hidden: true
+  YY1_LoaiTPthuhoi_PRD;
+  @UI: {  lineItem:       [ { position: 610  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Quy cách đóng gói'
+  @Consumption.filter.hidden: true
+  YY1_Quycachdonggoi_PRD;
+  @UI: {  lineItem:       [ { position: 620  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Receiving SLoc Description'
+  @Consumption.filter.hidden: true
+  IssuingOrReceivingsloc_name;
+  @UI: {  lineItem:       [ { position: 630  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Lot number'
+  @Consumption.filter.hidden: true
+  lotnumber;
+  @UI: {  lineItem:       [ { position: 630  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Khách hàng gửi gia công'
+  @Consumption.filter.hidden: true
+  KhGuiGiaCong;
+  
+  @UI: {  lineItem:       [ { position: 640  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Tên dài sản phẩm'
+  @Consumption.filter.hidden: true
+  tendai;
+  @UI: {  lineItem:       [ { position: 650  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Nhập'
+  @Consumption.filter.hidden: true
+  nhap;
+  @UI: {  lineItem:       [ { position: 660  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'Xuất'
+  @Consumption.filter.hidden: true
+  xuat;
+    @UI: {  lineItem:       [ { position: 670  } ],
+  identification: [{ position: 10 }] }
+  @EndUserText.label: 'G/L Account'
+  @Consumption.filter.hidden: true
+  GLAccount;
+  //  @UI: {  lineItem:       [ { position: 650  } ],
+  //  identification: [{ position: 10 }] }
+  //  @EndUserText.label: 'amount'
+  //  @Consumption.filter.hidden: true
+  //  amount;
+}

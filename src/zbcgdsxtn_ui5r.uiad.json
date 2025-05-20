@@ -1,0 +1,34 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Báo cáo giao dịch nhập xuất trong ngày",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD"
+  },
+  "ui5AppDetails": {
+    "appId": "zbcgdsxtn"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_62C3F1CDEFE219261E286581E8C90ABBE00D59B7_TM",
+    "semanticObject": "zbcgdsxtn",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_62C3F1CDEFE219261E286581E8C90ABBE00D59B7_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Báo cáo giao dịch nhập xuất trong ngày",
+        "subtitle": "ZMB51"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Báo cáo giao dịch sản xuất trong ngày'
+define service ZWM_UI {
+  expose ZWM_I_HEADER;
+}

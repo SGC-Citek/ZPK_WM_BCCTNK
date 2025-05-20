@@ -1,0 +1,4 @@
+@EndUserText.label: 'service def - wm - zmb51'
+define service ZSD_WM_ZMB51 {
+  expose ZWM_I_HEADER_CUSTOM;
+}

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZWM_BCGDNSXTRONGNGAY_IAM_EXT</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>Báo cáo giao dịch ngày sản xuất trong ngày iam app</DESCRIPTION>
+     <RESPONSIBLE>CB9980000010</RESPONSIBLE>
+     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>K9S</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZPK_BCGIAODICHNXTRONGNGAY</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZWM_BCGDNSXTRONGNGAY_IAM_EXT</APP_ID>
+    <APP_TYPE>EXT</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <UI_APP_ID>ZWMBCGDSXTN_UI5R</UI_APP_ID>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZWM_BCGDSXTRONGNGAY_UI             0001</REL_NAME>
+      <REL_TYPE>IWSV</REL_TYPE>
+      <APP_ID>ZWM_BCGDNSXTRONGNGAY_IAM_EXT</APP_ID>
+      <SRVC_NAME>2D88B6F502E5A34D3259903EA08DFB</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <UIAD_SRC>ZWMBCGDSXTN_UI5R</UIAD_SRC>
+      <TEXT>Báo cáo giao dịch sản xuất trong ngày</TEXT>
+      <TYPE_TEXT>OData V2</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <AUTH>
+     <item>
+      <AUTH_OBJECT>ZAO_BCNXTN</AUTH_OBJECT>
+      <STATUS>U</STATUS>
+      <TEXT>ZAO_BCNXTN</TEXT>
+      <AUTH_ITEM>
+       <item>
+        <UUID>Ce2R+NS8Hu+nhKpM8um8BQ==</UUID>
+        <AUTH_OBJECT>ZAO_BCNXTN</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0001</AUTH_OBJECT_INSTANCE>
+        <TEXT>ZAO_BCNXTN</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change,Create or generate,Delete</VALUE>
+          <VALUES>
+           <item>
+            <UUID>Ce2R+NS8Hu+nhKpM8uo8BQ==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>Ce2R+NS8Hu+nhKpM8uocBQ==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>Ce2R+NS8Hu+nhKpM8un8BQ==</UUID>
+            <LOW_VALUE>01</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>Ce2R+NS8Hu+nhKpM8upcBQ==</UUID>
+            <LOW_VALUE>06</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>ZAF_BCNXTN</FIELD>
+          <VALUES>
+           <item>
+            <UUID>Ce2R+NS8Hu+nhKpM8uncBQ==</UUID>
+           </item>
+          </VALUES>
+          <TEXT>Truth Value: True/False</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+      </AUTH_ITEM>
+     </item>
+    </AUTH>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>
